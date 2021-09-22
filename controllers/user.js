@@ -20,11 +20,9 @@ exports.signup = (req, res, next) => {
 
 
 exports.login = (req, res, next) => {
-console.log(req.body.email);
   User.findOne({ email: req.body.email })
-    .then(user => {
+    .then((user) => {
       if (!user) {
-        console.log(user);
         return res.status(401).json({ error: "Utilisateur non trouvé !" });
       }
       bcrypt
