@@ -6,19 +6,22 @@ const password = process.env.DB_PASS;
 const express = require("express");
 const bodyParser = require("body-parser");
 
+const helmet = require("helmet");
 const mongoose = require("mongoose");
 const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 const path = require("path");
 
-mongoose.connect(
-    'mongodb+srv://'+username+':'+password+'@'+host,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+const app = express();
+app.use(helmet());
+
+mongoose
+  .connect("mongodb+srv://" + username + ":" + password + "@" + host, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
-
-const app = express();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
