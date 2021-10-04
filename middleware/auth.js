@@ -1,3 +1,6 @@
+//middleware de sécurité
+//Vérifie l'authentification de l'utilisateur à chaque requête
+
 require("dotenv").config();
 const randomToken = process.env.TOKEN;
 const jwt = require("jsonwebtoken");

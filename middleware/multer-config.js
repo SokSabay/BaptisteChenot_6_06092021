@@ -1,3 +1,7 @@
+/* Multer est un module de gestion des fichiers
+Dans ce cas il sert à la reception et gestion 
+des images envoyées par les utilisateurs du front */
+
 const multer = require('multer');
 
 const MIME_TYPES = {

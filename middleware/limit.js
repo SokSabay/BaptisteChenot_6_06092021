@@ -1,3 +1,5 @@
+// Middleware de sécurité
+// Bloque l'utilisateur si il trop de tentative de connexion
 const rateLimit = require("express-rate-limit");
 
 const limiter = rateLimit({
